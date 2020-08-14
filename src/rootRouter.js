@@ -1,6 +1,5 @@
 import React from 'react';
-import { Router, Switch, Route } from 'react-router-dom';
-import { createHashHistory } from 'history';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import * as ROUTES from 'router';
 import { ThemeProvider } from 'styled-components';
 import { connect } from 'react-redux';
@@ -10,19 +9,18 @@ import { lightTheme, darkTheme } from 'utility';
 import { GlobalStyle, Header } from 'components';
 import { App, Collect, Player } from 'pages';
 
-const history = createHashHistory();
 const rootRouter = ({ islightTheme }) => (
   <ThemeProvider theme={islightTheme ? lightTheme : darkTheme}>
     <>
       <GlobalStyle />
-      <Router basename={process.env.PUBLIC_URL} history={history}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Header />
         <Switch>
           <Route path={ROUTES.COLLECT} component={Collect} />
           <Route path={`${ROUTES.PLAYER}/:id`} component={Player} />
           <Route path={ROUTES.HOME} component={App} />
         </Switch>
-      </Router>
+      </BrowserRouter>
     </>
   </ThemeProvider>
 );
