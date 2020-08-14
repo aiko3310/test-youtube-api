@@ -15,10 +15,15 @@ export const StyledCard = styled.div`
 `;
 export const StyledVideoImg = styled.div`
   position: relative;
-  background: ${({ theme, show }) => (show ? '' : theme.defaultTheme.gery)};
-  height: ${({ show }) => (show ? 'auto' : '58.5%')};
   img {
+    &:first-of-type {
+      width: 82%
+      display: ${({ show }) => (show ? 'none' : 'block')};
+    }
+    &:last-of-type {
     width: 100%;
+      display: ${({ show }) => (show ? 'block' : 'none')};
+    }
   }
   p {
     margin: 0;

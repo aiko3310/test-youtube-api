@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import * as ROUTES from 'router';
 import { ThemeProvider } from 'styled-components';
 import { connect } from 'react-redux';
@@ -13,14 +13,14 @@ const rootRouter = ({ islightTheme }) => (
   <ThemeProvider theme={islightTheme ? lightTheme : darkTheme}>
     <>
       <GlobalStyle />
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Router basename={process.env.PUBLIC_URL}>
         <Header />
         <Switch>
           <Route path={ROUTES.COLLECT} component={Collect} />
           <Route path={`${ROUTES.PLAYER}/:id`} component={Player} />
           <Route path={ROUTES.HOME} component={App} />
         </Switch>
-      </BrowserRouter>
+      </Router>
     </>
   </ThemeProvider>
 );

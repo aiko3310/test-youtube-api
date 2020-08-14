@@ -4,7 +4,7 @@ import momentDurationFormatSetup from 'moment-duration-format';
 import { Link } from 'react-router-dom';
 
 import * as ROUTES from 'router';
-import { InfoBox, CollectButton } from 'components';
+import { InfoBox, CollectButton, Spinner } from 'components';
 import {
   StyledCard,
   StyledVideoImg,
@@ -35,6 +35,7 @@ const VideoCard = ({ videoDatum }) => {
     <StyledCard>
       <StyledVideoImg show={imgIsLoad}>
         <Link to={path}>
+          <Spinner />
           <img src={thumbnails.medium.url} alt={title} onLoad={imgOnLoad} />
         </Link>
         <p>{videoTime}</p>
