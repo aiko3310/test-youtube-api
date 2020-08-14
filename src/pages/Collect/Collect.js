@@ -28,7 +28,7 @@ const Collect = ({ getCollectFromLocal, collect }) => {
         (_, i) => i >= currentPage * 12 && i < (currentPage + 1) * 12
       );
       return (
-        <StyledVideoContainer>
+        <StyledVideoContainer moreThenThree={collect.length > 2}>
           {filterResult.map(videoDatum => (
             <VideoCard key={videoDatum.id} videoDatum={videoDatum} />
           ))}

@@ -5,7 +5,8 @@ import Pagination from 'rc-pagination';
 export const StyledVideoContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: ${({ moreThenThree }) =>
+    moreThenThree ? 'space-between' : 'flex-start'};
 `;
 export const StyledTitle = styled.h2`
   padding-left: 1%;

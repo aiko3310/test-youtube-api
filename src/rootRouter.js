@@ -13,12 +13,12 @@ const rootRouter = ({ islightTheme }) => (
   <ThemeProvider theme={islightTheme ? lightTheme : darkTheme}>
     <>
       <GlobalStyle />
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename='/'>
         <Header />
         <Switch>
           <Route path={ROUTES.COLLECT} component={Collect} />
           <Route path={`${ROUTES.PLAYER}/:id`} component={Player} />
-          <Route path={ROUTES.HOME} component={App} />
+          <Route exact path={ROUTES.HOME} component={App} />
         </Switch>
       </Router>
     </>
